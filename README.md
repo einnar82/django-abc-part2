@@ -24,6 +24,6 @@ To create a new app inside of django project
 
     $ python manage.py startapp {app_name}
 
-To create migration files, first setup your models and define your fields and then
+To create migration files, first setup your (models)[https://docs.djangoproject.com/en/3.0/topics/db/models/] and define your fields and then
 
     $ python manage.py makemigrations
