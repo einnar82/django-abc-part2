@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Can't parse the title tag, only work around is to pass a variable from views to templates-->
+    <title>{{title}}</title>
+  </head>
+  <body>
+    {% block content %} {% endblock %}
+  </body>
+</html>

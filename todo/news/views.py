@@ -4,12 +4,15 @@ from django.shortcuts import render, HttpResponse
 
 
 def news(request):
-    return HttpResponse('news')
+    return render(request, 'news.html', {'title': 'News'})
+# return HttpResponse('news')
 
 
 def home(request):
-    return HttpResponse('Home')
+    return render(request, 'index.html', {'title': 'Home'})
+    # return HttpResponse('Home')
 
 
 def contact(request):
-    return HttpResponse('Contact')
+    return render(request, 'contact.html', {'title': 'Contact'})
+    # return HttpResponse('Contact')
