@@ -4,7 +4,10 @@ from django.shortcuts import render, HttpResponse
 
 
 def news(request):
-    return render(request, 'pages/news.html')
+    context = {
+        "tech_stacks": ["Python", "PHP", "Node.js"]
+    }
+    return render(request, 'pages/news.html', context)
 # return HttpResponse('news')
 
 

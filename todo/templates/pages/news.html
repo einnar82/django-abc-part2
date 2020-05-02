@@ -2,4 +2,15 @@
 {% block title %} News {% endblock %} 
 {% block content %}
 <p>News</p>
+
+<p>Backend Programming Languages</p>
+{% for tech_stack in tech_stacks  %}
+    <ul>
+        {% if tech_stack == 'PHP'%}
+            <li style="color:red">{{tech_stack}}</li>
+        {% else  %}
+            <li>{{tech_stack}}</li>
+        {% endif %}
+    </ul>
+{% endfor %}
 {% endblock %}
