@@ -9,7 +9,10 @@ def news(request):
 
 
 def home(request):
-    return render(request, 'pages/index.html')
+    context = {
+        "name": "John Doe"
+    }
+    return render(request, 'pages/index.html', context)
     # return HttpResponse('Home')
 
 
