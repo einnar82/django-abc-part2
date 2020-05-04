@@ -5,6 +5,15 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h1>Sign Up</h1>
+
+				{% if messages %}
+					{% for message in messages  %}
+						<div class="alert alert-{{message.level_tag}}" role="alert">
+						{{message}}
+						</div>
+					{% endfor %}
+				{% endif %}
+
 			<form action="{% url 'register' %}" method="POST">
 				{% csrf_token %}
 				<div class="form-group">
@@ -17,11 +26,11 @@
 				</div>
 				 <div class="form-group">
 					<label for="email">Email address</label>
-							{{form.email}}
+					{{form.email}}
 				 </div>
 				<div class="form-group">
 					<label for="phone">Phone</label>
-						{{form.phone}}
+					{{form.phone}}
 				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>

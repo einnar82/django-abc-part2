@@ -9,20 +9,18 @@ class RegistrationForm(forms.Form):
             'required': True
         }
     ))
-    password = forms.CharField(max_length=100, widget=forms.TextInput(
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput(
         attrs={
             'class': 'form-control',
             'placeholder': 'Password',
             'required': True,
-            'type': 'password'
         }
     ))
-    email = forms.CharField(max_length=100, widget=forms.TextInput(
+    email = forms.CharField(max_length=100, widget=forms.EmailInput(
         attrs={
             'class': 'form-control',
             'placeholder': 'Email Address',
             'required': True,
-            'type': 'email'
         }
     ))
     phone = forms.CharField(max_length=100, widget=forms.TextInput(
