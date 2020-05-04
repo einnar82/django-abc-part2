@@ -1,10 +1,20 @@
 {% extends 'base.html' %} 
 {% block title %} News {% endblock %} 
 {% block content %}
-<p>News</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+		<p>News</p>
 
-<p>List of news</p>
+		<p>List of news</p>
+			<div class="card" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">{{news.title}}</h5>
+					<p class="card-text">{{news.author}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-<h1>{{news.title}}</h1>
-<p>{{news.author}}</p>
 {% endblock %}

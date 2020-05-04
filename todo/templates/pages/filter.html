@@ -3,6 +3,11 @@
 {% block content %}
 <p>Year: {{year}}</p>
 {% for item in news %}
-    <p>{{item.title}}</p>
+			<div class="card" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">{{item.title}}</h5>
+					<p class="card-text">{{item.author}}</p>
+				</div>
+			</div>
 {% endfor %}
 {% endblock %}

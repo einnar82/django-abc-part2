@@ -1,6 +1,7 @@
-from django.shortcuts import HttpResponse, get_list_or_404, render
-from .models import News
-
+from django.shortcuts import HttpResponse, get_list_or_404, redirect, render
+from .models import News, User
+from .forms import RegistrationForm
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 
@@ -30,3 +31,18 @@ def home(request):
 
 def contact(request):
     return render(request, 'pages/contact.html')
+
+
+def signup(request):
+    context = {
+        "form": RegistrationForm
+    }
+    return render(request, 'pages/signup.html', context)
+
+
+def register(request):
+    form = RegistrationForm(request.POST)
+
+    if form.is_valid():
+        register = User.objects.create(**form.cleaned_data)
+        return redirect('home')

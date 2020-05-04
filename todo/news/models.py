@@ -33,3 +33,15 @@ class SportsNews(models.Model):
 
     def __str__(self):
         return self.author
+
+
+class User(models.Model):
+    class Meta:
+        db_table = 'users'
+        # change the pluralize behavior of model
+        verbose_name_plural = 'users'
+
+    username = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100)
