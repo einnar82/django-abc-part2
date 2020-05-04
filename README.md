@@ -27,3 +27,5 @@ To create a new app inside of django project
 To create migration files, or alter your exisiting migrations. first setup your [models](https://docs.djangoproject.com/en/3.0/topics/db/models/) and define your fields and then
 
     $ python manage.py makemigrations
+
+If the object is an instance of [QuerySet](https://docs.djangoproject.com/en/3.0/ref/models/querysets), you must iterate it

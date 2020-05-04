@@ -1,14 +1,24 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import HttpResponse, get_list_or_404, render
+from .models import News
 
 # Create your views here.
 
 
 def news(request):
     context = {
-        "tech_stacks": ["Python", "PHP", "Node.js"]
+        "news": News.objects.get(id=1)
     }
     return render(request, 'pages/news.html', context)
-# return HttpResponse('news')
+
+
+def filter(request, year):
+
+    context = {
+        "year": year,
+        # "news": News.objects.filter(pub_date__year=year)
+        "news": get_list_or_404(News, pub_date__year=year)
+    }
+    return render(request, 'pages/filter.html', context)
 
 
 def home(request):
@@ -16,9 +26,7 @@ def home(request):
         "name": "John Doe"
     }
     return render(request, 'pages/index.html', context)
-    # return HttpResponse('Home')
 
 
 def contact(request):
     return render(request, 'pages/contact.html')
-    # return HttpResponse('Contact')
