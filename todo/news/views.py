@@ -1,6 +1,6 @@
 from django.shortcuts import HttpResponse, get_list_or_404, redirect, render
 from .models import News, User
-from .forms import RegistrationForm
+from .forms import RegistrationForm, RegistrationModel
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 # Create your views here.
@@ -48,3 +48,17 @@ def register(request):
         register = User.objects.create(**form.cleaned_data)
         messages.success(request, 'Successfully registered!')
         return redirect('signup')
+
+
+def model_form(request):
+    context = {
+        "model_form": RegistrationModel
+    }
+    return render(request, 'pages/modelform.html', context)
+
+
+def submit_form(request):
+    model_form = RegistrationModel(request.POST)
+    if model_form.is_valid():
+        model_form.save()
+    return redirect('model_form')
